@@ -1,14 +1,13 @@
 from typing import List
 
 def urutkan_leaderboard(players: List[str]) -> List[str]:
-    # TUGAS: Buat inner function untuk custom key
     def kalkulasi_kda(data: str) -> tuple:
-        # 1. Pecah teksnya menggunakan .split('-')
-        # 2. Ambil nama (indeks 0), kills (indeks 1), dan deaths (indeks 2)
-        # 3. Ubah kills dan deaths jadi integer, lalu hitung net_score (kills - deaths)
-        # 4. Return tuple-nya! (Ingat trik minus untuk net_score)
-        
-        pass # Hapus pass dan tulis logika lu di sini
+        raw_data = data.split('-')
+        name = raw_data[0]
+        kills = int(raw_data[1])
+        deaths = int(raw_data[2])
+        new_data = (kills - deaths)
+        return (-new_data, name)
 
     # Terapkan custom key ke dalam fungsi sorted
     return sorted(players, key=kalkulasi_kda)
